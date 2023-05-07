@@ -34,6 +34,10 @@ def answer():
     query = request.args.get("query")
     answer = agent.run(query)
     return jsonify({"answer": answer})
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
 
 if __name__ == "__main__":
     app.run(debug=True)
