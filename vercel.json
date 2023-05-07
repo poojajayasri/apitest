@@ -8,10 +8,15 @@
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "app.py"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "/template/index.html"
     }
   ],
+  "cleanUrls": true,
   "env": {
     "OPENAI_API_KEY": "$OPENAI_API_KEY",
     "SERPAPI_API_KEY": "$SERPAPI_API_KEY",
