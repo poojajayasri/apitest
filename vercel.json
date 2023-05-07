@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ],
+  "env": {
+    "OPENAI_API_KEY": "$OPENAI_API_KEY",
+    "SERPAPI_API_KEY": "$SERPAPI_API_KEY",
+    "ZAPIER_NLA_API_KEY": "$ZAPIER_NLA_API_KEY"
+  }
+}
