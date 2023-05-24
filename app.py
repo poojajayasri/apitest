@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, render_template
 import os
 from langchain.llms import OpenAI
+from flask_cors import CORS
 
 llm = OpenAI(model_name="text-ada-001", openai_api_key=openai_api_key)
 
@@ -23,7 +24,6 @@ def answer():
     query = request.args.get("query")
     answer = llm(query)
     return jsonify({"answer": answer})
-from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
