@@ -20,8 +20,8 @@ def index():
 
 @app.route("/answer")
 def answer():
-    #query = request.args.get("query")
-    answer = llm("What day comes after Friday?")
+    query = request.args.get("query")
+    answer = llm(query)
     return jsonify({"answer": answer})
 from flask_cors import CORS
 
