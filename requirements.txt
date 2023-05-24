@@ -1,5 +1,6 @@
 flask
 langchain
+openai
 requests
 jsonify
 flask_cors
