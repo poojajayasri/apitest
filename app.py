@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request, render_template
 from langchain.llms import OpenAI
 from flask_cors import CORS
-openai_api_key = "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"
+import os
+openai_api_key = os.environ.get('OPEN_API_KEY')
+
 llm = OpenAI(model_name="text-ada-001", openai_api_key=openai_api_key)
 
 
