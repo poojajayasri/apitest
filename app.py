@@ -9,14 +9,15 @@ llm = OpenAI(model_name="text-ada-001", openai_api_key=openai_api_key)
 app = Flask(__name__)
 CORS(app)
 
-# Flask routes
-@app.route("/")
+# GET route
+@app.route("/", methods=["GET"])
 def index():
     return render_template("index.html")
 
-@app.route("/answer")
+# POST route
+@app.route("/answer", methods=["POST"])
 def answer():
-    query = request.args.get("query")
+    query = request.form.get("query")
     answer = llm(query)
     return jsonify({"answer": answer})
 
