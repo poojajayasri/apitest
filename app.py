@@ -15,9 +15,9 @@ def index():
     return render_template("index.html")
 
 # POST route
-@app.route("/answer", methods=["POST"])
+@app.route("/answer", methods=["POST", "GET"])
 def answer():
-    query = request.form.get("query")
+    query = request.args.get("query")
     answer = llm(query)
     return jsonify({"answer": answer})
 
