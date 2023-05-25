@@ -2,13 +2,12 @@ from flask import Flask, jsonify, request, render_template
 from langchain.llms import OpenAI
 from flask_cors import CORS
 import os
-openai_api_key = os.environ["OPENAI_API_KEY"]
 
+openai_api_key = os.environ["OPENAI_API_KEY"]
 llm = OpenAI(model_name="text-ada-001", openai_api_key=openai_api_key)
 
-
-
 app = Flask(__name__)
+CORS(app)
 
 # Flask routes
 @app.route("/")
@@ -21,8 +20,5 @@ def answer():
     answer = llm(query)
     return jsonify({"answer": answer})
 
-app = Flask(__name__)
-CORS(app)
-
 if __name__ == "__main__":
-    app.run(port = 8000)
+    app.run(port=8000)
