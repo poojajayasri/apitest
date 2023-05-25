@@ -3,7 +3,8 @@ from langchain.llms import OpenAI
 from flask_cors import CORS
 import os
 
-openai_api_key = os.environ["OPENAI_API_KEY"]
+openai_api_key = os.environ.get("OPENAI_API_KEY")
+print(f"open api key is: {openai_api_key}")
 llm = OpenAI(model_name="text-ada-001", openai_api_key=openai_api_key)
 
 app = Flask(__name__)
